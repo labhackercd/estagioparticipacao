@@ -46,6 +46,11 @@
           scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop() - 120
         });
       });
+      
+      $('.logo').click(function() {
+        $("html, body").animate({ scrollTop: 0 }, "slow");
+        return false;
+      });
 
     });
   </script>
