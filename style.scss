@@ -66,12 +66,24 @@ header {
     font-family: 'Abel';
     text-transform: uppercase;
     font-size: 2em;
-    text-decoration: none;
-    background-color: #E86424;
+    text-decoration: none;    
     border: none;
     border-radius: 10px;
     padding: 20px 30px 20px 30px;
     color: white;
+  }
+  .mobile {
+    background-color: #E86424;
+    &:hover {
+      background-color: lighten(#E86424, 5%);
+    }
+  }
+  .acces {
+    background-color: #29B641;
+    margin-right: 20px;
+    &:hover {
+      background-color: lighten(#29B641, 5%);
+    }
   }
 }
 
