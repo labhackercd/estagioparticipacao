@@ -8,59 +8,260 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Programa Estágio Participação</title>
 
-  <link href="style.css" rel="stylesheet">
-  <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+  <!--<link href="style.css" rel="stylesheet">-->
 
 </head>
 
 <body>
 
-  <header>
-    <div class="logo"></div>
-  </header>
-
-  <div class="main">
-    <div class="video">
-      <iframe width="90%" height="500" src="https://www.youtube.com/embed/1R3tlOh9T80" frameborder="0" allowfullscreen=""></iframe>
-    </div> 
-    <a id="start" class="acces" href="#">Acesse já!</a>
-    <a target="_blank" class="mobile" href="https://www.onlinequizcreator.com/pt/programa-estagio-participacao/quiz-92388">Abrir no celular</a>
-  </div>
-
-  <div class="main">
-<div id="quiz" style="clear: both; position: relative; padding-bottom: 2000px; height: 0; overflow: hidden;">
-  <div class="loading-spinner"></div>
-  <iframe id="embed" src="https://www.onlinequizcreator.com/pt/programa-estagio-participacao/quiz-92388" border="0" frameborder="0" scrolling="yes" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow-x: hidden;"></iframe>
-  </div>
+  <style>
+    #ep {
+      position: relative;
+      z-index: 2;
+      max-width: 100%;
+      max-height: 100%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      margin: 0;
+      /*Loader*/
+    }
     
+    #ep:before {
+      content: "";
+      position: fixed;
+      top: 0;
+      background: url(/documents/2021006/0/bg.jpg/f57c7f80-f8ed-442c-9700-e622fecb0bf1?t=1435949973384);
+      background-repeat: repeat;
+      z-index: -1;
+      height: 100%;
+      width: 100%;
+      -webkit-filter: grayscale(1) opacity(0.15);
+    }
+    
+    #ep header {
+      margin-left: auto;
+      margin-right: auto;
+      height: 100px;
+      position: absolute;
+      top: 0;
+      z-index: 99;
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-content: flex-start;
+      align-items: center;
+      padding: 10px;
+      -webkit-box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.3);
+      -moz-box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 4px 5px -1px rgba(0, 0, 0, 0.3);
+      background-color: white;
+    }
+    
+    #ep header .logo {
+      cursor: pointer;
+      height: 100%;
+      width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      background-image: url(/documents/2021006/0/logo.png/c426c972-3e0f-4771-976a-f9a8b8a26e99?t=1435949805928);
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+    
+    #ep .main {
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      padding-top: 120px;
+    }
+    
+    #ep .main .video {
+      margin-top: 50px;
+      margin-bottom: 50px;
+      width: 100%;
+      height: auto;
+    }
+    
+    #ep .main .buttons {
+      margin-top: 100px;
+    }
+    
+    #ep .main a {
+      font-family: 'Abel';
+      text-transform: uppercase;
+      font-size: 2em;
+      text-decoration: none;
+      border: none;
+      border-radius: 10px;
+      padding: 20px 30px 20px 30px;
+      color: white;
+    }
+    
+    #ep .main .mobile {
+      background-color: #E86424;
+    }
+    
+    #ep .main .mobile:hover {
+      background-color: #ea743b;
+    }
+    
+    #ep .main .acces {
+      background-color: #29B641;
+      margin-right: 20px;
+    }
+    
+    #ep .main .acces:hover {
+      background-color: #2ecb48;
+    }
+    
+    #ep #quiz {
+      background-color: white;
+      border: 1px solid #e0e0e0;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    @-webkit-keyframes rotate-forever {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    
+    @-moz-keyframes rotate-forever {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    
+    @keyframes rotate-forever {
+      0% {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+      }
+      100% {
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+      }
+    }
+    
+    #ep .loading-spinner {
+      margin-top: 50px;
+      -webkit-animation-duration: 0.75s;
+      -moz-animation-duration: 0.75s;
+      animation-duration: 0.75s;
+      -webkit-animation-iteration-count: infinite;
+      -moz-animation-iteration-count: infinite;
+      animation-iteration-count: infinite;
+      -webkit-animation-name: rotate-forever;
+      -moz-animation-name: rotate-forever;
+      animation-name: rotate-forever;
+      -webkit-animation-timing-function: linear;
+      -moz-animation-timing-function: linear;
+      animation-timing-function: linear;
+      height: 30px;
+      width: 30px;
+      border: 8px solid #666666;
+      border-right-color: transparent;
+      border-radius: 50%;
+      display: inline-block;
+    }
+    /*# sourceMappingURL=style.css.map */
+  </style>
+
+  <div id="ep">
+
+    <style>
+    </style>
+
+    <link href="http://fonts.googleapis.com/css?family=Abel" rel="stylesheet" type="text/css">
+    <header id="sticky">
+      <div class="logo"></div>
+    </header>
+
+    <div class="main">
+      <div class="video">
+        <iframe width="90%" height="500" src="https://www.youtube.com/embed/1R3tlOh9T80" frameborder="0" allowfullscreen=""></iframe>
+      </div>
+      <a id="start" class="acces" href="#">Acesse já!</a>
+      <a target="_blank" class="mobile" href="https://www.onlinequizcreator.com/pt/programa-estagio-participacao/quiz-92388">Abrir no celular</a>
+    </div>
+
+    <div class="main">
+      <div id="quiz" style="clear: both; position: relative; padding-bottom: 100%; height: 0; overflow: hidden;">
+        <div class="loading-spinner"></div>
+        <iframe id="embed" src="https://www.onlinequizcreator.com/pt/programa-estagio-participacao/quiz-92388" border="0" frameborder="0" scrolling="yes" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow-x: hidden;"></iframe>
+      </div>
+
+    </div>
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://rawgit.com/leafo/sticky-kit/v1.1.2/jquery.sticky-kit.min.js"></script>
+
+    <script>
+      $(function () {
+        var scrollTo = $('#quiz'),
+          container = $('body');
+
+        $('#start').click(function (e) {
+          e.preventDefault();
+          $('html, body').animate({
+            scrollTop: $("#quiz").offset().top - 120
+          }, 1000);
+        });
+
+        $('.logo').click(function () {
+          $("html, body").animate({
+            scrollTop: 0
+          }, "slow");
+          return false;
+        });
+
+        $('#embed').load(function () {
+          $('.loading-spinner').remove();
+        });
+
+        $("#sticky").stick_in_parent();
+
+      });
+    </script>
+
+
   </div>
 
-
-  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script>
-    $(function () {
-      var scrollTo = $('#quiz'),
-        container = $('body');
-
-      $('#start').click(function (e) {
-        e.preventDefault();
-        console.log('fui apertado');
-        container.animate({
-          scrollTop: scrollTo.offset().top - container.offset().top + container.scrollTop() - 120
-        });
-      });
-      
-      $('.logo').click(function() {
-        $("html, body").animate({ scrollTop: 0 }, "slow");
-        return false;
-      });
-      
-      $('#embed').load(function(){
-        $('.loading-spinner').remove();
-      });
-
-    });
-  </script>
 
 
 </body>
